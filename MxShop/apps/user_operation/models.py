@@ -19,6 +19,7 @@ class UserFav(models.Model):
     class Meta:
         verbose_name = '用户收藏'
         verbose_name_plural = verbose_name
+        # 设置字段为联合唯一索引
         unique_together = ("user", "goods")
 
     def __str__(self):
