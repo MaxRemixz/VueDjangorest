@@ -47,11 +47,13 @@ class UserRegSerializer(serializers.ModelSerializer):
                                  })
     username = serializers.CharField(required=True, allow_blank=False, label="用户名",
                                      validators=[UniqueValidator(queryset=User.objects.all(),
-                                                                 message="用户已存在")])
+                                                                 message="用户已存在")],
+                                     help_text="用户名")
     password = serializers.CharField(
         style={'input_type':'password'},
         label="密码",
         write_only=True,
+        help_text="密码"
     )
     # 重构该方法可以使得保护用户之前讲用户密码加密后再保存
     # def create(self, validated_data):
