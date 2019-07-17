@@ -74,7 +74,7 @@ class SmsCodeViewset(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
 
 class UserViewset(mixins.CreateModelMixin, viewsets.GenericViewSet,
-                  mixins.RetrieveModelMixin):
+                  mixins.RetrieveModelMixin, mixins.UpdateModelMixin):
     """
     用户
     """

@@ -68,10 +68,10 @@ export const getMessage = parmas => { return axios.post(`${loacl_host}/code/`, p
 
 
 //获取用户信息
-export const getUserDetail = () => { return axios.get(`${host}/users/1/`) }
+export const getUserDetail = () => { return axios.get(`${loacl_host}/users/1/`) }
 
 //修改用户信息
-export const updateUserInfo = params => { return axios.patch(`${host}/users/1/`, params) }
+export const updateUserInfo = params => { return axios.patch(`${loacl_host}/users/1/`, params) }
 
 
 //获取订单
