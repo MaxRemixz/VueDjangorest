@@ -78,7 +78,6 @@ class UserViewset(mixins.CreateModelMixin, viewsets.GenericViewSet,
     """
     用户
     """
-    serializer_class = UserRegSerializer
     queryset = User.objects.all()
     # 由于setting中默认配置了BasicAuthentication所以访问会弹出登录框。
     # 改为支持在浏览器中添加session
