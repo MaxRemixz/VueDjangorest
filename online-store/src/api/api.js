@@ -85,13 +85,13 @@ export const getOrderDetail = orderId => {return axios.get(`${host}/orders/`+ord
 
 
 //获取留言
-export const getMessages = () => {return axios.get(`${host}/messages/`)}
+export const getMessages = () => {return axios.get(`${loacl_host}/messages/`)}
 
 //添加留言
-export const addMessage = params => {return axios.post(`${host}/messages/`, params, {headers:{ 'Content-Type': 'multipart/form-data' }})}
+export const addMessage = params => {return axios.post(`${loacl_host}/messages/`, params, {headers:{ 'Content-Type': 'multipart/form-data' }})}
 
 //删除留言
-export const delMessages = messageId => {return axios.delete(`${host}/messages/`+messageId+'/')}
+export const delMessages = messageId => {return axios.delete(`${loacl_host}/messages/`+messageId+'/')}
 
 //添加收货地址
 export const addAddress = params => {return axios.post(`${host}/address/`, params)}
