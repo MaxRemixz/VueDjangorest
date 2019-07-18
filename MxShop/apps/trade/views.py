@@ -3,7 +3,7 @@ from rest_framework.authentication import SessionAuthentication
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
-from .serializers import ShopCartSerializer
+from .serializers import ShopCartSerializer, ShopCartDetailSerializer
 from utils.permissions import IsOwnerOrReadOnly
 from .models import ShoppingCart
 
@@ -28,3 +28,11 @@ class ShoppingCartViewset(viewsets.ModelViewSet):
     # 重写列表页的显示  这样就返回当前用户的购物车记录
     def get_queryset(self):
         return ShoppingCart.objects.filter(user=self.request.user)
+
+    # 重构get_serializer_class以达到动态设置serializer
+    # 可以满足不同的页面需求
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ShopCartDetailSerializer
+        else:
+            return ShopCartSerializer
